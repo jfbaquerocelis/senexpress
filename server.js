@@ -7,6 +7,10 @@ app.get('/', function (req, res) {
   res.end('Hola mundo!')
 })
 
+app.get('/:name', function (req, res) {
+  res.end(`Hola ${req.params.name}`)
+})
+
 app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`)
 })
