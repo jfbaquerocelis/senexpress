@@ -1,7 +1,7 @@
 const Promise = require('bluebird')
 const express = require('express')
 const Seneca = require('seneca')
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 10101
 
 const app = express()
 const seneca = Seneca({
@@ -35,7 +35,7 @@ seneca.use(function user () {
 }).ready(function (err) {
   if (err) console.error(err)
 
-  this.listen()
+  this.listen(PORT)
 })
 
 app.get('/', function (req, res) {
@@ -62,6 +62,6 @@ app.get('/users/:user_id', async function (req, res) {
 })
 
 
-app.listen(PORT, () => {
-  console.log(`Server running on ${PORT}`)
+app.listen(3000, () => {
+  console.log(`Server running on 3000`)
 })
